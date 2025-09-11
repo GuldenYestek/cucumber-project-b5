@@ -41,4 +41,10 @@ public class DocuportConstants {
     public static String SUPERVISOR = "supervisor";
     public static String EMPLOYEE = "employee";
 
+    public static final int EXTRA_SMALL = 3;
+    public static final int SMALL = 5;
+    public static final int MEDIUM = 7;
+    public static final int LARGE = 10;
+    public static final int EXTRA_LARGE = 20;
+
 }
