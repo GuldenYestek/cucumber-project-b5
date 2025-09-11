@@ -15,14 +15,14 @@ public class Hook {
        BrowserUtils.myScenario = scenario;
 
    }
-   @Before
+   @After
     public void tearDown(Scenario scenario) {
        //only takes screenshot when scenario is failed
        if (scenario.isFailed()) {
            final byte[] screenshot = ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
            scenario.attach(screenshot, "image/png", scenario.getName());
        }
-       //Driver.closeDriver();
+       Driver.closeDriver();
    }
    //@AfterStep
     public void takeScreenshot (Scenario scenario) {
