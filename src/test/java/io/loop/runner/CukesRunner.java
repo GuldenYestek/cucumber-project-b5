@@ -11,7 +11,7 @@ import org.junit.runner.RunWith;
         features = "src/test/resources/features",
         glue = "io/loop/step_definitions",
         dryRun = false,
-        tags = "@wikipedia_search_outline",
+        tags = "@smartbearsoftware",
         monochrome = true
 
 )
