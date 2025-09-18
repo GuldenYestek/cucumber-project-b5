@@ -31,3 +31,41 @@ Feature: product data table practice
       #  {Category=Monitors, Product=Apple monitor 24, expectedPrice=400}
       #  List Element 8 (Map):
       #  {Category=Monitors, Product=ASUS Full HD, expectedPrice=230}
+
+
+  @listOfLists
+  #practice
+  Scenario: verify each product price ListOfList
+    Given User is on the HomePage
+    Then User should be able to see expected prices in the following products with listOfLists
+      | Phones   | Samsung galaxy s6 | 360 |
+      | Phones   | Nokia lumia 1520  | 820 |
+      | Phones   | Nexus 6           | 650 |
+      | Laptops  | Sony vaio i5      | 790 |
+      | Laptops  | Sony vaio i7      | 790 |
+      | Laptops  | MacBook air       | 700 |
+      | Monitors | Apple monitor 24  | 400 |
+      | Monitors | ASUS Full HD      | 230 |
+
+
+   @mapList
+   #Map<String, List<String>>
+  Scenario: verify student names
+     Then user should be able to see the names
+       | Group 2 | nadir | feyruz | Jane   |
+       | Group 3 | vika  | suidium | savlat |
+
+     # List Element 1 (List<String>): [ Group 2, nadir, feyruz, Jane]
+     # List Element 1 (List<String>): [ Group 3, vika, suidum, savlat]
+
+
+  @mapListProduct
+  Scenario: verify each product price map
+    Given User is on the HomePage
+    Then User should be able to see expected prices in the following products with map
+
+      | Phones   | Samsung galaxy s6-360 | Nokia lumia 1520-820 | Nexus 6-650      |
+      | Laptops  | Sony vaio i5 -790     | Sony vaio i7 - 790   | MacBook air -700 |
+      | Monitors | Apple monitor 24- 400 | ASUS Full HD -   230 |                  |
+
+
