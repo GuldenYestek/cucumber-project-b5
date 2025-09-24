@@ -1,6 +1,6 @@
 Feature: Scenario Outline Practice
 
-  @docuport_login
+  @docuport_login @smoke
   Scenario Outline:
     Given user is on Google search page
     When user searches for "<country>"
