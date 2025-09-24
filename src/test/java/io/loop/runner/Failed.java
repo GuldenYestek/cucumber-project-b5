@@ -7,16 +7,14 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 @CucumberOptions(
         plugin = {"html:target/html-reports/cucumber-report.html",
-                "json:target/json-reports/json-report.json",
-                "rerun:target/rerun.txt"},
-        features = "src/test/resources/features",
+                "json:target/json-reports/json-report.json"},
+        features = "@target/rerun.txt",
         glue = "io/loop/step_definitions",
-        dryRun = false,
-        tags = "@docuport_toolbar_visibility",
         monochrome = true,
         publish = false
-
 )
+public class Failed {
 
-public class CukesRunner {
+
+
 }

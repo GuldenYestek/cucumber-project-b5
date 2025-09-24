@@ -8,6 +8,9 @@ import io.loop.utilities.BrowserUtils;
 import io.loop.utilities.ConfigurationReader;
 import io.loop.utilities.DocuportConstants;
 import io.loop.utilities.Driver;
+import org.openqa.selenium.devtools.v137.preload.model.PreloadingAttemptSourcesUpdated;
+
+import java.util.Map;
 
 import static org.junit.Assert.assertTrue;
 
@@ -51,10 +54,12 @@ public class LoginStepDefs {
     public void user_enters_username_for_employee() {
 
     }
+
     @When("user enters password for employee")
     public void user_enters_password_for_employee() {
 
     }
+
     @Then("user should be able to see the home page for employee")
     public void user_should_be_able_to_see_the_home_page_for_employee() {
 
@@ -64,10 +69,12 @@ public class LoginStepDefs {
     public void user_enters_username_for_advisor() {
 
     }
+
     @When("user enters password for advisor")
     public void user_enters_password_for_advisor() {
 
     }
+
     @Then("user should be able to see the home page for advisor")
     public void user_should_be_able_to_see_the_home_page_for_advisor() {
 
@@ -77,16 +84,36 @@ public class LoginStepDefs {
     public void user_enters_username_for_supervisor() {
 
     }
+
     @When("user enters password for supervisor")
     public void user_enters_password_for_supervisor() {
 
     }
+
     @Then("user should be able to see the home page for supervisor")
     public void user_should_be_able_to_see_the_home_page_for_supervisor() {
 
+    }
+
+    @When("user enters credentials")
+    public void user_enters_credentials(Map<String, String> credentials) throws InterruptedException {
+        // for (Map.Entry<String, String> entry : credentials.entrySet()) {
+        // String key = entry.getKey();
+        //  System.out.println("key = "+ key);
+
+        // String value = entry.getValue();
+        // System.out.println("value = "+ value);
+
+        // System.out.println("+++++++++++++++++++++++++++++++++++++++");
+
+        //}
+
+
+        loginPage.login(credentials.get("username"), credentials.get("password"));
 
 
     }
-
-
 }
+
+
+

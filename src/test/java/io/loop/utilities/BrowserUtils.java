@@ -102,11 +102,11 @@ public class BrowserUtils {
      * waits for provided element to be invisible on the page
      *
      * @param element
-     * @param timeaout
+     * @param timeout
      * @author nsh
      */
-    public static void waitForInvisibility(WebElement element, int timeaout) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeaout));
+    public static void waitForInvisibility(WebElement element, int timeout) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
         wait.until(ExpectedConditions.invisibilityOf(element));
     }
 
@@ -114,13 +114,28 @@ public class BrowserUtils {
      * waits for provided element to be visible on the page
      *
      * @param element
-     * @param timeaout
+     * @param timeout
      * @author nsh
      */
-    public static WebElement waitForVisibility(WebElement element, int timeaout) {
-        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeaout));
+    public static WebElement waitForVisibility(WebElement element, int timeout) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.visibilityOf(element));
     }
+
+    public static void click(WebElement element) {
+        click(element, 10);
+    }
+
+    public static void click(WebElement element, int timeoutSec) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeoutSec));
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(element)).click();
+        } catch (ElementClickInterceptedException e) {
+            // JS fallback if something overlays the element
+            ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", element);
+        }
+    }
+
 }
 
 
