@@ -54,11 +54,11 @@ public class DocuportUtils {
 
     }
         public static void logOut (WebDriver driver){
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(DocuportConstants.SMALL));
             WebElement userIcon = driver.findElement(By.xpath("//div[@class='v-avatar primary']"));
             userIcon.click();
 
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(DocuportConstants.SMALL));
             WebElement logOut = driver.findElement(By.xpath("//span[contains(text(),'Log out')]"));
             logOut.click();
         }

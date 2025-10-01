@@ -20,7 +20,7 @@ public class DocuportToolbarVisibilityStepDefs {
     private final Toolbar toolbar = new Toolbar();
     private final HomePage homePage = new HomePage();
     private final WebDriverWait wait =
-            new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+            new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(DocuportConstants.LARGE));
 
     private static String usernameForRole(String role) {
         switch (role.toLowerCase().trim()) {
