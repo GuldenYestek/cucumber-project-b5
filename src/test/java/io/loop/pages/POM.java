@@ -9,6 +9,7 @@ public class POM {
     private SmartBearSoftwarePage smartBearSoftwarePage;
     private ReceivedDocsPage receivedDocsPage;
     private LeftNavigatePage leftNavigatePage;
+    private MyUploadsPage myUploadsPage;
 
     public LoginPage getLoginPage() {
         if (loginPage == null){
@@ -58,4 +59,11 @@ public class POM {
         }
         return leftNavigatePage;
     }
+    public MyUploadsPage getMyUploadsPage() {
+        if (myUploadsPage == null){
+            myUploadsPage = new MyUploadsPage();
+        }
+        return myUploadsPage;
+    }
+
 }

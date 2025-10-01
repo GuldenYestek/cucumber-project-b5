@@ -36,6 +36,7 @@ public class SampleDocuportStepDefs {
 
             case "left navigate" -> pages.getLeftNavigatePage().clickButton(button);
             case "received doc" -> pages.getReceivedDocsPage().clickButton(button);
+            case "my uploads" -> pages.getMyUploadsPage().clickButton(button);
             default -> throw new IllegalArgumentException("Not such a page" + page);
 
         }

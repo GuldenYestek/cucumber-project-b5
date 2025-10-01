@@ -14,7 +14,8 @@ Feature: Docuport Sample Scenario
     And user clicks "Received Doc" button on "Left Navigate" page
     And user clicks "Search" button on "Received Doc" page
     And user inserts "tax document" to "Document name" field on "Received Doc" page
-    And user clicks "My uploads" button on "My uploads" page
+    And user clicks "My uploads" button on "Left Navigate" page
+    And user clicks "Upload documents" button on "My uploads" page
     And user clicks "Upload file" button on "My uploads" page
 
 
