@@ -1,6 +1,7 @@
 package io.loop.pages;
 
 import io.loop.utilities.ConfigurationReader;
+import io.loop.utilities.DocuportConstants;
 import io.loop.utilities.Driver;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,7 +21,7 @@ public class SmartBearSoftwarePage {
 
    public SmartBearSoftwarePage() {
        this.driver = Driver.getDriver();
-       this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+       this.wait = new WebDriverWait(driver,Duration.ofSeconds(DocuportConstants.LARGE));
        PageFactory.initElements(driver, this);
    }
 

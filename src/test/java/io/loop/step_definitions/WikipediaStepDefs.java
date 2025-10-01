@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.loop.pages.WikipediaSearchPage;
 import io.loop.utilities.BrowserUtils;
+import io.loop.utilities.DocuportConstants;
 import io.loop.utilities.Driver;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
@@ -38,7 +39,7 @@ public class WikipediaStepDefs {
     @Then("user sees {string} is in the {string}")
     public void user_sees_is_in_the_wiki_title(String name, String where) {
         WebDriver driver = Driver.getDriver();
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(DocuportConstants.LARGE));
 
         switch (where.toLowerCase()) {
             case "wiki title": {

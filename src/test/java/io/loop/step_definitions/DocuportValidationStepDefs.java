@@ -22,7 +22,7 @@ import static org.junit.Assert.assertTrue;
 public class DocuportValidationStepDefs {
 
     private final POM pages = new POM();
-    private final WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(5));
+    private final WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(DocuportConstants.SMALL));
 
     private static final By NAV_ITEMS = By.xpath("//*[contains(@class,'v-list-item__title')]");
 

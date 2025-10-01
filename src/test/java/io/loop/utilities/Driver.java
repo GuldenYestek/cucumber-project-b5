@@ -38,6 +38,7 @@ public class Driver {
     public static WebDriver getDriver() {
         if (driverPool.get() == null) {
             String browserType = ConfigurationReader.getProperties("browser");
+            //String browserType = System.getenv("browser");
             ChromeOptions options = new ChromeOptions();
             switch (browserType.toLowerCase()) {
                 case "chrome" -> {
@@ -63,7 +64,8 @@ public class Driver {
                 }
             }
             driverPool.get().manage().window().maximize();
-            driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+           // driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(Integer.valueOf(ConfigurationReader.getProperties("timeouts"))));
+            driverPool.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(DocuportConstants.LARGE));
         }
         return driverPool.get();
     }

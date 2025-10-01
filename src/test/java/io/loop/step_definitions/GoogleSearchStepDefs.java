@@ -6,6 +6,7 @@ import io.cucumber.java.en.When;
 import io.loop.pages.GoogleSearchPage;
 import io.loop.utilities.BrowserUtils;
 import io.loop.utilities.ConfigurationReader;
+import io.loop.utilities.DocuportConstants;
 import io.loop.utilities.Driver;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.remote.Browser;
@@ -73,7 +74,7 @@ public class GoogleSearchStepDefs {
 //        for(String item : items) {
 //            googleSearchPage.searchBox.clear();
 //            googleSearchPage.searchBox.sendKeys(item+Keys.ENTER);
-//            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+//            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(DocuportConstants.LARGE));
 //            wait.until(ExpectedConditions.titleIs(item + " - Google Search"));
 //            assertEquals("Expected does not much actual", item + " - Google Search", Driver.getDriver().getTitle());
 //            BrowserUtils.takeScreenshot();
@@ -82,7 +83,7 @@ public class GoogleSearchStepDefs {
 //        items.forEach(p-> {
 //            googleSearchPage.searchBox.clear();
 //            googleSearchPage.searchBox.sendKeys(p + Keys.ENTER);
-//            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+//            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(DocuportConstants.LARGE));
 //            wait.until(ExpectedConditions.titleIs(p + " - Google Search"));
 //            assertEquals("Expected does not match the actual", p + " - Google Search", Driver.getDriver().getTitle());
 //            BrowserUtils.takeScreenshot();
@@ -96,7 +97,7 @@ public class GoogleSearchStepDefs {
             System.out.println("item.get(\"items\") = " + item.get("items"));
             googleSearchPage.searchBox.clear();
             googleSearchPage.searchBox.sendKeys(item.get("items")  + Keys.ENTER);
-            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(DocuportConstants.LARGE));
             wait.until(ExpectedConditions.titleIs(item.get("items") + " - Google Search"));
             assertEquals("Expected does not match the actual", item.get("items") + " - Google Search", Driver.getDriver().getTitle());
             BrowserUtils.takeScreenshot();

@@ -7,6 +7,8 @@ public class POM {
     private HomePage homePage;
     private ProductPage productPage;
     private SmartBearSoftwarePage smartBearSoftwarePage;
+    private ReceivedDocsPage receivedDocsPage;
+    private LeftNavigatePage leftNavigatePage;
 
     public LoginPage getLoginPage() {
         if (loginPage == null){
@@ -41,5 +43,19 @@ public class POM {
             smartBearSoftwarePage = new SmartBearSoftwarePage();
         }
         return smartBearSoftwarePage;
+    }
+
+    public ReceivedDocsPage getReceivedDocsPage() {
+        if (receivedDocsPage == null){
+            receivedDocsPage = new ReceivedDocsPage();
+        }
+        return receivedDocsPage;
+    }
+
+    public LeftNavigatePage getLeftNavigatePage() {
+        if (leftNavigatePage == null){
+            leftNavigatePage = new LeftNavigatePage();
+        }
+        return leftNavigatePage;
     }
 }
