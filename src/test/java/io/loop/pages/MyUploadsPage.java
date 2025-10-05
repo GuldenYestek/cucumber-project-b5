@@ -14,23 +14,28 @@ public class MyUploadsPage {
     }
 
     // Adjust xpaths if your UI differs in spelling/case
-    @FindBy(xpath = "//span[normalize-space()='Upload documents' or normalize-space()='Upload Documents']")
-    public WebElement uploadDocumentsBtn;
+    @FindBy(xpath = "//span[.='Upload documents' and @class='subtitle-2 text-none']")
+    public WebElement uploadDocuments;
 
-    @FindBy(xpath = "//span[normalize-space()='Upload file' or normalize-space()='Upload File' or contains(., 'Upload file')]")
-    public WebElement uploadFileBtn;
+    @FindBy(xpath = "//span[.='Upload file' and @class='subtitle-2 text-none']")
+    public WebElement uploadFile;
+
+    @FindBy(xpath = "//span[contains(text(),' Upload ')]")
+    public WebElement upload;
+
 
     public void clickButton(String button) {
         switch (button.toLowerCase().trim()) {
             case "upload documents" ->
-                    BrowserUtils.waitForClickable(uploadDocumentsBtn, DocuportConstants.LARGE).click();
-
+                    BrowserUtils.waitForClickable(uploadDocuments, DocuportConstants.LARGE).click();
             case "upload file" ->
-                    BrowserUtils.waitForClickable(uploadFileBtn, DocuportConstants.LARGE).click();
+                    BrowserUtils.waitForClickable(uploadFile, DocuportConstants.LARGE).click();
 
             default -> throw new IllegalArgumentException("Not such a button: " + button);
         }
     }
+
+
 
     // (Optional) If you later need to actually upload a file instead of only clicking:
     // @FindBy(css = "input[type='file']") public WebElement fileInput;
