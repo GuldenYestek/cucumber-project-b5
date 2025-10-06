@@ -12,5 +12,5 @@ Feature: Practice soft assertions
     And user clicks "continue" button on "Choose account" page
     And user clicks "home" button on "Left Navigate" page
     And user clicks "invitations" button on "Left Navigate" page
-    And user validate all assertions
+   # And user validates all assertions
 

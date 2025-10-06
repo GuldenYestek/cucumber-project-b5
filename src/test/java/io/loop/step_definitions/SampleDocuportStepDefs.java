@@ -49,6 +49,8 @@ public class SampleDocuportStepDefs {
                 LOG.info(button + " - was successfully clicked - ");
             }
 
+
+
             default -> throw new IllegalArgumentException("No such a page: " + page);
         }
     }

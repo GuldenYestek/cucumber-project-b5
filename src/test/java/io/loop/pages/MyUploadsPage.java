@@ -13,7 +13,7 @@ public class MyUploadsPage {
         PageFactory.initElements(Driver.getDriver(), this);
     }
 
-    // Adjust xpaths if your UI differs in spelling/case
+
     @FindBy(xpath = "//span[.='Upload documents' and @class='subtitle-2 text-none']")
     public WebElement uploadDocuments;
 
