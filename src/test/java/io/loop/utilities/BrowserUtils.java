@@ -2,14 +2,21 @@ package io.loop.utilities;
 
 import io.cucumber.java.Scenario;
 import org.openqa.selenium.*;
+import org.openqa.selenium.interactions.Action;
+
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import javax.print.Doc;
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import static org.junit.Assert.assertTrue;
 
@@ -100,6 +107,18 @@ public class BrowserUtils {
     public static WebElement waitForClickable(WebElement element, int timeout) {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
         return wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
+
+    public static WebElement waitForClickable2(WebElement element, int timeout){
+
+            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(timeout));
+        try {
+            System.out.println("try");
+            return wait.until(ExpectedConditions.elementToBeClickable(element));
+        } catch (StaleElementReferenceException se){
+            System.out.println("catch");
+            return wait.until(ExpectedConditions.elementToBeClickable(element));
+        }
     }
 
     /**
@@ -210,6 +229,83 @@ public class BrowserUtils {
 
         String[] command = { "osascript", "-e", script };
         Runtime.getRuntime().exec(command);
+    }
+
+    /**
+     *
+     */
+
+    public static void hover(WebElement webElement){
+        Actions actions = new Actions(Driver.getDriver());
+        actions.moveToElement(webElement).perform();
+
+    }
+    /**
+     * Scroll down to an Element using JavaScript
+     * @param element
+     * @author nsh
+     */
+
+    public static void scrollToElement(WebElement element){
+        ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
+    }
+    /**
+     * Clicks on element using javaScript
+     * @param element
+     * @author nsh
+     */
+
+    public static void clickWithJS(WebElement element){
+        try {
+            new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(DocuportConstants.LARGE));
+            ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
+            ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", element);
+        } catch (StaleElementReferenceException se) {
+            ((JavascriptExecutor) Driver.getDriver()).executeScript("arguments[0].click();", element);
+        }
+    }
+
+    /**
+     * performs double click action
+     * @param element
+     * @author nsh
+     */
+
+    public static void doubleClick(WebElement element){
+        new Actions(Driver.getDriver()).doubleClick().perform();
+    }
+
+    /**
+     * performs a pause
+     * @param milliSeconds
+     * @author nsh
+     */
+
+    public static void justWait (int milliSeconds){
+        try {
+            Thread.sleep(milliSeconds);
+        } catch (InterruptedException i) {
+           i.printStackTrace();
+        }
+    }
+    public static List<String> getElementsText(List<WebElement> elements){
+        List<String> elementsText = new ArrayList<>();
+        for (WebElement element : elements) {
+            elementsText.add(element.getText());
+
+        }
+        return elementsText;
+    }
+
+    public static List<String> getElementsTextWithString(List<WebElement> elements){
+        return elements.stream()
+                .map(x->x.getText())
+                .collect(Collectors.toList());
+    }
+    public static List<String> getElementsTextWithString2(List<WebElement> elements){
+        return elements.stream()
+                .map(WebElement::getText)
+                .collect(Collectors.toList());
     }
 }
 
