@@ -41,12 +41,20 @@ public class LeftNavigatePage {
 //                } catch (StaleElementReferenceException se) {
 //                    BrowserUtils.waitForClickable(homeButton, DocuportConstants.LARGE).click();
 //                }
-//
 //            }
 
 //            case "home" -> BrowserUtils.waitForClickable2(homeButton, DocuportConstants.LARGE);
 
-//
+//            case "home" ->{
+//                BrowserUtils.waitForClickable(homeButton, DocuportConstants.LARGE);
+//                try {
+//                    System.out.println("try");
+//                    homeButton.click();
+//                } catch (StaleElementReferenceException se) {
+//                    System.out.println("catch");
+//                    homeButton.click();
+//                }
+//            }
 
            case "home" -> {
                BrowserUtils.waitForClickable(homeButton, DocuportConstants.LARGE);
